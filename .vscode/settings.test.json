@@ -1,0 +1,27 @@
+{
+  "files.simpleDialog.enable": true,
+  "window.dialogStyle": "custom",
+  "cline.allowedCommands": [
+    "git log",
+    "git diff", 
+    "git show",
+    "ls -l",
+    "ls",
+    "npm",
+    "npx",
+    "rm",
+    "echo",
+    "grep",
+    "mkdir",
+    "cat",
+    "mv",
+    "npm test",
+    "npm install",
+    "tsc",
+    "cd",
+    "pnpm"
+  ],
+  "cline.deniedCommands": [],
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "diffEditor.maxComputationTime": 0
+}
