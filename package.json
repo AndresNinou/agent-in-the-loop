@@ -1,0 +1,19 @@
+{
+  "name": "controller_vscode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "ui:prep": "extest get-vscode --storage ./vscode-test-persistent -c 1.104.0 && extest get-chromedriver --storage ./vscode-test-persistent -c 1.104.0 && extest install-from-marketplace saoudrizwan.claude-dev --storage ./vscode-test-persistent",
+    "ui:test": "./run-with-persistence.sh",
+    "ui:test:cline": "./run-with-persistence.sh ui-tests/cline.chat.test.js",
+    "ui:setup": "./run-with-persistence.sh ui-tests/manual-verify-persistence.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "VS Code Extension Testing Framework with Persistent Logins",
+  "devDependencies": {
+    "fs-extra": "^11.3.1",
+    "vscode-extension-tester": "^8.17.0"
+  }
+}

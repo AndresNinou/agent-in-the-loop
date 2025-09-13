@@ -1,0 +1,20 @@
+{
+  "extensionId": "saoudrizwan.claude-dev",
+  "open": {
+    "commandPalette": "cline.openInNewTab",
+    "activityBarTitle": "Cline",
+    "editorTabTitle": "Cline"
+  },
+  "selectors": {
+    "input": [
+      "[data-testid=\"chat-input\"]",
+      "[role=\"textbox\"][contenteditable=\"true\"]",
+      "[contenteditable=\"true\"]",
+      "textarea:not([readonly]):not([aria-hidden=\"true\"]):not([tabindex=\"-1\"])"
+    ],
+    "sendButton": "[data-testid=\"send-button\"]",
+    "assistantText": ".sc-ienWRC .ph-no-capture",
+    "modeSwitchActXpath": "//div[@data-testid='mode-switch']//div[@role='switch' and normalize-space()='Act']"
+  },
+  "message": "Hello from ExTester"
+}
