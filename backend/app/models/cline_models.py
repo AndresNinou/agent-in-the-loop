@@ -1,37 +1,11 @@
-"""Models for the application."""
+"""Pydantic models for Cline agent API endpoints."""
 
-from typing import Optional, List, Dict, Any
 from datetime import datetime
+from typing import List, Optional, Dict, Any
+from pydantic import BaseModel, Field
 from uuid import UUID
 
-from sqlalchemy import Column, Integer, PrimaryKeyConstraint, Text
-from sqlmodel import Field, SQLModel
-from pydantic import BaseModel
 
-
-class BaseResponse(SQLModel):
-    """Base response model."""
-    message: str
-
-
-class Item(SQLModel, table=True):
-    """Example item model."""
-    id: int | None = Field(default=None, primary_key=True)
-    title: str
-    description: str | None = None
-
-
-class Page(SQLModel, table=True):
-    __tablename__ = 'Page'
-    __table_args__ = (
-        PrimaryKeyConstraint('id', name='Page_pkey'),
-    )
-
-    id: Optional[int] = Field(default=None, sa_column=Column('id', Integer, primary_key=True))
-    name: str = Field(sa_column=Column('name', Text))
-
-
-# Cline Agent API Models
 class MessageRequest(BaseModel):
     """Request model for sending a message to Cline agent."""
     message: str = Field(..., min_length=1, max_length=10000, description="Message to send to the agent")

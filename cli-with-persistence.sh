@@ -71,8 +71,18 @@ if [[ "$INTERACTIVE_MODE" == "true" ]]; then
     echo "You'll be able to chat directly with Cline in a conversation."
     echo ""
     
-    # Use the truly interactive test runner that prompts for input
-    npx extest run-tests "ui-tests/cli-truly-interactive.test.js" --storage ./vscode-test-persistent -o ./.vscode/settings.test.json
+    # Check if this is an API session mode
+    if [[ -n "$SESSION_INPUT_FILE" && -n "$SESSION_OUTPUT_FILE" ]]; then
+        echo "🔧 Running in API session mode for session ID: $SESSION_ID"
+        echo "📁 Input file: $SESSION_INPUT_FILE"
+        echo "📄 Output file: $SESSION_OUTPUT_FILE"
+        
+        # Use a modified persistent test that works with API files
+        npx extest run-tests "ui-tests/api-persistent-session.test.js" --storage ./vscode-test-persistent -o ./.vscode/settings.test.json
+    else
+        # Use the truly interactive test runner that prompts for input
+        npx extest run-tests "ui-tests/cli-truly-interactive.test.js" --storage ./vscode-test-persistent -o ./.vscode/settings.test.json
+    fi
 else
     # Single message mode
     npx extest run-tests "ui-tests/cli-runner.test.js" --storage ./vscode-test-persistent -o ./.vscode/settings.test.json

@@ -46,14 +46,9 @@ async def lifespan(_app: FastAPI):
     # Pre-startup initialization task
     try:
         logger.info("FastAPI application starting up")
-        # Warm-up database connection to fail fast if unreachable
-        from sqlalchemy import text
-
-        from app.core.db import engine
-
-        async with engine.connect() as conn:
-            await conn.execute(text("SELECT 1"))
-
+        # Skip database connection for Cline automation API
+        # Database not needed for VS Code automation control
+        
         yield
     finally:
         # Shutdown tasks

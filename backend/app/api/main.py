@@ -21,6 +21,10 @@ api_router.include_router(utils.router)
 # Pages router already has its own prefix and tags, so we don't add them again
 api_router.include_router(pages.router)
 
+# Cline agent automation routes
+from app.api.routes import cline
+api_router.include_router(cline.router)
+
 # Register private router only in local environment
 if settings.ENVIRONMENT == "local":
     # Private router already has its own prefix and tags, so we don't add them again
