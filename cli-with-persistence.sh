@@ -21,9 +21,9 @@ fi
 
 echo ""
 
-# Start the persistence injector in the background
-echo "Starting persistence injector..."
-./lib/injectPersistence.sh &
+# Start the improved persistence system in the background
+echo "Starting improved persistence system..."
+./lib/improvedPersistence.sh &
 INJECTOR_PID=$!
 
 echo "Injector PID: $INJECTOR_PID"

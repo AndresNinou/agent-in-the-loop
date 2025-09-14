@@ -10,9 +10,9 @@ TEST_FILE=${1:-"ui-tests/**/*.test.js"}
 echo "Test file(s): $TEST_FILE"
 echo ""
 
-# Start the persistence injector in background
-echo "Starting persistence injector..."
-./lib/injectPersistence.sh &
+# Start the improved persistence injector in background
+echo "Starting improved persistence system..."
+./lib/improvedPersistence.sh &
 INJECTOR_PID=$!
 echo "Injector PID: $INJECTOR_PID"
 echo ""

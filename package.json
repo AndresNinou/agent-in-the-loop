@@ -11,7 +11,15 @@
     "ui:setup": "./run-with-persistence.sh ui-tests/manual-verify-persistence.test.js",
     "cli": "./cli-with-persistence.sh",
     "cli:interactive": "./cli-with-persistence.sh --interactive",
-    "cli:multi": "./cli-multi.sh"
+    "cli:multi": "./cli-multi.sh",
+    "setup:login": "./setup-login.sh",
+    "setup:verify": "./setup-verify.sh",
+    "setup:clean": "./setup-clean.sh",
+    "setup:fresh": "./setup-fresh.sh",
+    "setup:nuclear": "./setup-nuclear.sh",
+    "setup:check": "./setup-check.sh",
+    "setup:refresh": "./setup-refresh.sh",
+    "debug:state": "./debug-state.sh"
   },
   "keywords": [],
   "author": "",
