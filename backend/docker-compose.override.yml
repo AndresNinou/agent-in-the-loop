@@ -1,0 +1,36 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# WARNING: This override file creates different runtime behavior from production!
+# - Uses single worker with hot-reload (prod uses multi-worker without reload)
+# - Race conditions that only appear with multiple workers won't be visible here
+# - This configuration is for local development only, not staging/production
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+services:
+  # FastAPI backend service - consumer of auto-generated models
+  backend:
+    restart: "no"
+    ports:
+      - "8000:8000"
+    build:
+      context: ./backend
+    # DEV ONLY: Single worker with hot-reload (vs. multi-worker in production)
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    develop:
+      watch:
+        - path: ./backend
+          action: sync
+          target: /app
+          ignore:
+            - ./backend/.venv
+            - .venv
+        - path: ./backend/pyproject.toml
+          action: rebuild
+    # TODO: remove once coverage is done locally
+    volumes:
+      - ./backend/htmlcov:/app/htmlcov
+    # Environment variables directly in docker-compose.override.yml
+    # These should be minimal since most settings come from .env
+    environment:
+      # Override environment to ensure we're in local mode
+      ENVIRONMENT: "local"
+

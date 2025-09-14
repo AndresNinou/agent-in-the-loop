@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check
+        name: Run code quality checks
+        entry: bash -c 'cd "$(git rev-parse --show-toplevel)/backend" && make check'
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: test
+        name: Run tests
+        entry: bash -c 'cd "$(git rev-parse --show-toplevel)/backend" && MODE=full make test'
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: smoke
+        name: Run smoke test
+        entry: bash -c 'cd "$(git rev-parse --show-toplevel)/backend" && make smoke'
+        language: system
+        pass_filenames: false
+        always_run: true
