@@ -30,6 +30,10 @@ describe('Cline API Demo - Single Session', function () {
   });
 
   it('should send messages to the session', async () => {
+    if (!session1) {
+      throw new Error('Session was not created successfully - cannot send messages');
+    }
+    
     // Send message to Session 1
     console.log('\n📤 Session 1: Sending first message...');
     const result1 = await clineController.sendMessage(session1, 'Can you create a simple Python function to calculate factorial?');
@@ -41,6 +45,10 @@ describe('Cline API Demo - Single Session', function () {
   });
 
   it('should track session state and messages', async () => {
+    if (!session1) {
+      throw new Error('Session was not created successfully - cannot check state');
+    }
+    
     // Check session state
     const state1 = await clineController.getSessionState(session1);
 
@@ -55,6 +63,10 @@ describe('Cline API Demo - Single Session', function () {
   });
 
   it('should demonstrate session management', async () => {
+    if (!session1) {
+      throw new Error('Session was not created successfully - cannot get stats');
+    }
+    
     // Get session statistics
     const stats1 = await clineController.getSessionStats(session1);
 
@@ -70,6 +82,10 @@ describe('Cline API Demo - Single Session', function () {
   });
 
   it('should send follow-up messages', async () => {
+    if (!session1) {
+      throw new Error('Session was not created successfully - cannot send follow-up');
+    }
+    
     // Send follow-up to Session 1
     console.log('\n📤 Session 1: Sending follow-up...');
     const result1 = await clineController.sendMessage(session1, 'Can you show me an example of creating a React component?');
@@ -79,10 +95,12 @@ describe('Cline API Demo - Single Session', function () {
   });
 
   it('should demonstrate proper cleanup', async () => {
-    console.log('\n🧹 Cleaning up sessions...');
+    console.log('\n🧼 Cleaning up sessions...');
 
-    // Close the session
-    await clineController.closeSession(session1);
+    // Close the session (if it exists)
+    if (session1) {
+      await clineController.closeSession(session1);
+    }
 
     // Verify cleanup
     const remainingSessions = clineController.getAllSessions();
