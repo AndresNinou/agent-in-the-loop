@@ -6,10 +6,10 @@
     "activityBarSelector": "a.action-label.activity-workbench-view-extension-coderabbit-vscode-sidebar-view-805a14ec738ccecc79033c32919d8508e0bb57c9"
   },
   "selectors": {
-    "reviewAllChangesButton": "button:has-text('Review all changes')",
-    "stopReviewButton": "button:has-text('Stop Review')",
-    "reviewAllChangesDisabled": "button[disabled]:has-text('Review all changes')",
-    "fixAllIssuesButton": "button:has-text('Fix all issues'), button:contains('Fix all issues')",
+    "reviewAllChangesButton": "button.inline-flex.items-center.justify-center, button[class*='inline-flex'][class*='items-center']",
+    "stopReviewButton": "button[class*='inline-flex'][class*='items-center']", 
+    "reviewAllChangesDisabled": "button[disabled][class*='inline-flex'][class*='items-center']",
+    "fixAllIssuesButton": "button[class*='inline-flex'][class*='items-center']",
     "commentsTab": "li.action-item[role='tab'] a[aria-label='Comments']",
     "commentsList": ".monaco-list[role='tree'][aria-label='Comments']",
     "commentItems": ".monaco-list-row[role='treeitem']",
@@ -17,13 +17,13 @@
     "commentUser": ".comment-metadata .user",
     "commentRange": ".comment-metadata .range p",
     "filePathLabel": ".monaco-icon-label .label-name",
-    "processingIndicator": "button:has-text('Stop Review')",
-    "completionIndicator": "button[disabled]:has-text('Review all changes')",
+    "processingIndicator": "button[aria-label*='Stop'], button[title*='Stop']",
+    "completionIndicator": "button[disabled][aria-label*='Review'], button[disabled][title*='Review']",
     "sparkleIcon": ".codicon-sparkle",
     "chevronDownIcon": ".lucide-chevron-down",
     "popupDialog": "[role='dialog'], .quick-input-widget, .monaco-quick-input-widget",
     "selectAllCheckbox": "input[type='checkbox'][aria-label*='select all'], input[type='checkbox'][title*='select all']",
-    "confirmButton": "button:has-text('OK'), button:has-text('Apply'), button[aria-label='OK'], .primary-button",
+    "confirmButton": "button[aria-label='OK'], button[aria-label='Apply'], .primary-button",
     "enterKey": "Enter"
   },
   "workflow": {

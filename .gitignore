@@ -1,4 +1,5 @@
 node_modules/
 test-resources/
 vscode-test-persistent/
+vscode-test-coderabbit/
 .env

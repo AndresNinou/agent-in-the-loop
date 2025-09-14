@@ -33,18 +33,9 @@ class CodeRabbitCLI {
       await this.browser.openResources(customWorkspace);
       console.log('✅ VS Code browser ready');
 
-      // Add delay for manual CodeRabbit login
-      console.log('\n⏰ MANUAL LOGIN TIME');
-      console.log('===================');
-      console.log('🔑 Please manually login to CodeRabbit in the VS Code window that just opened');
-      console.log('📝 Steps: 1) Open CodeRabbit extension, 2) Sign in with your account');
-      console.log('⏱️  You have 60 seconds...\n');
-      
-      for (let i = 60; i > 0; i--) {
-        process.stdout.write(`\r⏳ Starting automation in ${i} seconds... (Login to CodeRabbit now!)`);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-      console.log('\n\n🚀 Starting CodeRabbit automation...\n');
+      // Brief delay for VS Code to fully load
+      console.log('\n🚀 Starting CodeRabbit automation...\n');
+      await new Promise(resolve => setTimeout(resolve, 3000));
 
       // Create a persistent session
       console.log('\n🔗 Creating CodeRabbit session...');

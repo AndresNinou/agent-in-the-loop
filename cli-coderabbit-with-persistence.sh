@@ -29,9 +29,12 @@ fi
 
 echo ""
 
-# Start the improved persistence system in the background
-echo "Starting improved persistence system..."
-./lib/improvedPersistence.sh &
+# Create separate storage directory for CodeRabbit
+mkdir -p ./vscode-test-coderabbit
+
+# Start the improved persistence system in the background with CodeRabbit storage
+echo "Starting improved persistence system for CodeRabbit..."
+STORAGE_DIR="./vscode-test-coderabbit" ./lib/improvedPersistence.sh &
 INJECTOR_PID=$!
 
 echo "Injector PID: $INJECTOR_PID"
@@ -42,12 +45,12 @@ sleep 2
 
 # Display persistence status
 echo "🔐 PERSISTENCE INJECTOR ACTIVE"
-echo "📦 Backup: $(pwd)/vscode-test-persistent/state.vscdb.backup"
-echo "📍 Target: $(pwd)/vscode-test-persistent/settings/User/globalStorage/state.vscdb"
+echo "📦 Backup: $(pwd)/vscode-test-coderabbit/state.vscdb.backup"
+echo "📍 Target: $(pwd)/vscode-test-coderabbit/settings/User/globalStorage/state.vscdb"
 echo ""
 
 # Restore the state file
-echo "✅ Restored state file ($(du -h vscode-test-persistent/state.vscdb.backup 2>/dev/null | cut -f1 || echo 'N/A'))"
+echo "✅ Restored state file ($(du -h vscode-test-coderabbit/state.vscdb.backup 2>/dev/null | cut -f1 || echo 'N/A'))"
 echo "👁️  Monitoring for state file deletion..."
 
 # Function to cleanup
@@ -138,7 +141,7 @@ if [[ "$INTERACTIVE_MODE" == "true" ]]; then
     echo ""
 fi
 
-npx extest run-tests "ui-tests/cli-coderabbit-runner.test.js" --storage ./vscode-test-persistent -o ./.vscode/settings.test.json
+npx extest run-tests "ui-tests/cli-coderabbit-runner.test.js" --storage ./vscode-test-coderabbit -o ./.vscode/settings.test.json
 
 # Clean up the temporary test file
 rm -f ui-tests/cli-coderabbit-runner.test.js

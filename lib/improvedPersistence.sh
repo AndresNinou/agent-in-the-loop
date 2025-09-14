@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# Improved persistence system with better timing and reliability
-# This version is less aggressive and more intelligent about when to restore
+# Improved Persistence System
+# Monitors and maintains VS Code state files for better authentication persistence
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-STATE_DIR="$PROJECT_DIR/vscode-test-persistent/settings/User/globalStorage"
-STATE_FILE="$STATE_DIR/state.vscdb"
-BACKUP_FILE="$PROJECT_DIR/vscode-test-persistent/state.vscdb.backup"
+# Use STORAGE_DIR environment variable if provided, otherwise default to vscode-test-persistent
+STORAGE_PATH="${STORAGE_DIR:-./vscode-test-persistent}"
+STATE_FILE="$STORAGE_PATH/settings/User/globalStorage/state.vscdb"
+BACKUP_FILE="$STORAGE_PATH/state.vscdb.backup"
 LOCK_FILE="/tmp/vscode-persistence.lock"
 
 echo "🔐 IMPROVED PERSISTENCE SYSTEM ACTIVE"
