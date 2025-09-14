@@ -26,6 +26,7 @@
     "autoApproveChevron": ".codicon-chevron-up",
     "toggleAllCheckbox": ".sc-dycHyt.iVmIIU vscode-checkbox",
     "maxRequestsField": "vscode-text-field[current-value]",
+    "settingsCloseButton": "vscode-button[appearance=\"icon\"] .codicon-close",
     "modeSwitchActXpath": "//div[@data-testid='mode-switch']//div[@role='switch' and normalize-space()='Act']"
   },
   "message": "Hello from ExTester 👋"

@@ -7,6 +7,7 @@
     "ui:test": "./run-with-persistence.sh",
     "ui:test:cline": "./run-with-persistence.sh ui-tests/cline.chat.test.js",
     "ui:test:api": "./run-with-persistence.sh ui-tests/cline-api-demo.test.js",
+    "ui:test:api:custom": "CUSTOM_WORKSPACE=/home/newton/coding_playground ./run-with-persistence.sh ui-tests/cline-api-demo.test.js",
     "ui:setup": "./run-with-persistence.sh ui-tests/manual-verify-persistence.test.js"
   },
   "keywords": [],

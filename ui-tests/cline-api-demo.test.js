@@ -12,7 +12,12 @@ describe('Cline API Demo - Single Session', function () {
     console.log('===================================\n');
 
     console.log('🚀 Initializing VS Code browser...');
-    await VSBrowser.instance.openResources();
+
+    // Check for custom workspace path from environment variable
+    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+
+    console.log(`📁 Opening workspace: ${customWorkspace}`);
+    await VSBrowser.instance.openResources(customWorkspace);
     console.log('✅ VS Code browser ready\n');
   });
 
