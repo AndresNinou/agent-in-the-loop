@@ -7,14 +7,26 @@
   },
   "selectors": {
     "input": [
+      "textarea[data-testid=\"chat-input\"]",
       "[data-testid=\"chat-input\"]",
-      "[role=\"textbox\"][contenteditable=\"true\"]",
-      "[contenteditable=\"true\"]",
-      "textarea:not([readonly]):not([aria-hidden=\"true\"]):not([tabindex=\"-1\"])"
+      "textarea:not([aria-hidden]):not([tabindex=\"-1\"])"
     ],
-    "sendButton": "[data-testid=\"send-button\"]",
-    "assistantText": ".sc-ienWRC .ph-no-capture",
+    "sendButton": "[data-testid=\"send-button\"], .input-icon-button.codicon-send",
+    "cancelButton": "vscode-button:has-text('Cancel (ESC)')",
+    "proceedButton": "vscode-button:has-text('Proceed While Running')",
+    "startNewTaskButton": "vscode-button:has-text('Start New Task'), vscode-button:has-text('Start New Task with Context')",
+    "messageContainer": ".sc-gkCgsS.bnbjFC.ph-no-capture, .sc-ienWRC, [data-index] .sc-gkCgsS, [data-index] .sc-ienWRC",
+    "messageText": ".sc-gkCgsS.bnbjFC.ph-no-capture p, .sc-ienWRC p, .sc-ienWRC .ph-no-capture",
+    "messageWrapper": "[data-index]",
+    "assistantText": ".sc-ienWRC .ph-no-capture, .sc-gkCgsS.bnbjFC.ph-no-capture",
+    "apiRequestIndicator": "[data-testid*='api'], .api-request, .loading, .spinner",
+    "processingIndicator": ".processing, .thinking, .waiting",
+    "autoApproveSection": ".px-\\[10px\\].mx-\\[15px\\].select-none.rounded-\\[10px_10px_0_0\\]",
+    "completionIndicator": ".cursor-pointer.py-\\[8px\\].pr-\\[2px\\].flex.items-center.justify-between",
+    "autoApproveChevron": ".codicon-chevron-up",
+    "toggleAllCheckbox": ".sc-dycHyt.iVmIIU vscode-checkbox",
+    "maxRequestsField": "vscode-text-field[current-value]",
     "modeSwitchActXpath": "//div[@data-testid='mode-switch']//div[@role='switch' and normalize-space()='Act']"
   },
-  "message": "Hello from ExTester"
+  "message": "Hello from ExTester 👋"
 }
