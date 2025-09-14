@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "ui:prep": "extest get-vscode --storage ./vscode-test-persistent -c 1.104.0 && extest get-chromedriver --storage ./vscode-test-persistent -c 1.104.0 && extest install-from-marketplace saoudrizwan.claude-dev --storage ./vscode-test-persistent",
+    "ui:prep:coderabbit": "extest get-vscode --storage ./vscode-test-persistent -c 1.104.0 && extest get-chromedriver --storage ./vscode-test-persistent -c 1.104.0 && extest install-from-marketplace CodeRabbit.coderabbit-vscode --storage ./vscode-test-persistent",
     "ui:test": "./run-with-persistence.sh",
     "ui:test:cline": "./run-with-persistence.sh ui-tests/cline.chat.test.js",
     "ui:test:api": "./run-with-persistence.sh ui-tests/cline-api-demo.test.js",
@@ -12,6 +13,10 @@
     "cli": "./cli-with-persistence.sh",
     "cli:interactive": "./cli-with-persistence.sh --interactive",
     "cli:multi": "./cli-multi.sh",
+    "coderabbit": "./cli-coderabbit-with-persistence.sh",
+    "coderabbit:interactive": "./cli-coderabbit-with-persistence.sh --interactive",
+    "coderabbit:review": "./cli-coderabbit-with-persistence.sh review",
+    "coderabbit:fix": "./cli-coderabbit-with-persistence.sh fix",
     "setup:login": "./setup-login.sh",
     "setup:verify": "./setup-verify.sh",
     "setup:clean": "./setup-clean.sh",

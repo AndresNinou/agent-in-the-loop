@@ -1,0 +1,47 @@
+{
+  "extensionId": "CodeRabbit.coderabbit-vscode",
+  "open": {
+    "commandPalette": "coderabbit.openSidebar",
+    "activityBarTitle": "CodeRabbit",
+    "activityBarSelector": "a.action-label.activity-workbench-view-extension-coderabbit-vscode-sidebar-view-805a14ec738ccecc79033c32919d8508e0bb57c9"
+  },
+  "selectors": {
+    "reviewAllChangesButton": "button:has-text('Review all changes')",
+    "stopReviewButton": "button:has-text('Stop Review')",
+    "reviewAllChangesDisabled": "button[disabled]:has-text('Review all changes')",
+    "fixAllIssuesButton": "button:has-text('Fix all issues'), button:contains('Fix all issues')",
+    "commentsTab": "li.action-item[role='tab'] a[aria-label='Comments']",
+    "commentsList": ".monaco-list[role='tree'][aria-label='Comments']",
+    "commentItems": ".monaco-list-row[role='treeitem']",
+    "commentText": ".text span p, .comment-metadata .text span",
+    "commentUser": ".comment-metadata .user",
+    "commentRange": ".comment-metadata .range p",
+    "filePathLabel": ".monaco-icon-label .label-name",
+    "processingIndicator": "button:has-text('Stop Review')",
+    "completionIndicator": "button[disabled]:has-text('Review all changes')",
+    "sparkleIcon": ".codicon-sparkle",
+    "chevronDownIcon": ".lucide-chevron-down",
+    "popupDialog": "[role='dialog'], .quick-input-widget, .monaco-quick-input-widget",
+    "selectAllCheckbox": "input[type='checkbox'][aria-label*='select all'], input[type='checkbox'][title*='select all']",
+    "confirmButton": "button:has-text('OK'), button:has-text('Apply'), button[aria-label='OK'], .primary-button",
+    "enterKey": "Enter"
+  },
+  "workflow": {
+    "steps": [
+      "openCodeRabbit",
+      "clickReviewAllChanges", 
+      "waitForProcessing",
+      "waitForCompletion",
+      "extractComments",
+      "clickFixAllIssues",
+      "handlePopup"
+    ]
+  },
+  "states": {
+    "idle": "ready for review",
+    "processing": "Stop Review button visible", 
+    "completed": "Review all changes button disabled",
+    "commentsReady": "Comments tab available with content"
+  },
+  "message": "CodeRabbit automation ready 🐰"
+}
