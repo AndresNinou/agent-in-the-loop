@@ -72,8 +72,8 @@ echo "=========================================="
 echo ""
 
 # Set environment variables for VS Code test setup
-export VSCODE_TEST_WORKSPACE="/home/newton/coding_playground"
-export CUSTOM_WORKSPACE="/home/newton/coding_playground"
+export VSCODE_TEST_WORKSPACE="/home/newton/swe_bench_reproducer"
+export CUSTOM_WORKSPACE="/home/newton/swe_bench_reproducer"
 export CODERABBIT_COMMAND="$COMMAND"
 export CODERABBIT_ARGS="$ARGS"
 

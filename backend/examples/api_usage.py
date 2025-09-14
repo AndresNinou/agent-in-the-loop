@@ -26,7 +26,7 @@ class ClineAPIClient:
     
     async def send_message(self, session_id: str, message: str, workspace_path: str = None) -> Dict[str, Any]:
         """Send a message to the Cline agent."""
-        async with httpx.AsyncClient(timeout=300.0) as client:  # 5 minute timeout
+        async with httpx.AsyncClient(timeout=600.0) as client:  # 10 minute timeout
             payload = {"message": message}
             if workspace_path:
                 payload["workspace_path"] = workspace_path
@@ -70,7 +70,7 @@ class ClineAPIClient:
     
     async def quick_message(self, message: str, workspace_path: str = None) -> Dict[str, Any]:
         """Send a quick message without creating a persistent session."""
-        async with httpx.AsyncClient(timeout=300.0) as client:
+        async with httpx.AsyncClient(timeout=600.0) as client:
             payload = {"message": message}
             if workspace_path:
                 payload["workspace_path"] = workspace_path

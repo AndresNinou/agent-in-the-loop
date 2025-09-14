@@ -62,8 +62,8 @@ echo "=============================="
 echo ""
 
 # Set environment variables
-export VSCODE_TEST_WORKSPACE="/home/newton/coding_playground"
-export CUSTOM_WORKSPACE="/home/newton/coding_playground"
+export VSCODE_TEST_WORKSPACE="/home/newton/swe_bench_reproducer"
+export CUSTOM_WORKSPACE="/home/newton/swe_bench_reproducer"
 export CLI_MESSAGES="$CLI_MESSAGES"
 
 # Run the interactive test with multiple messages

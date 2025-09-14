@@ -14,7 +14,7 @@ describe('Cline API Demo - Single Session', function () {
     console.log('🚀 Initializing VS Code browser...');
 
     // Check for custom workspace path from environment variable
-    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/swe_bench_reproducer';
 
     console.log(`📁 Opening workspace: ${customWorkspace}`);
     await VSBrowser.instance.openResources(customWorkspace);

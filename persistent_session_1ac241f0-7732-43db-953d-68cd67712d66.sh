@@ -4,7 +4,7 @@
 echo "Starting persistent Cline session 1ac241f0-7732-43db-953d-68cd67712d66..."
 
 # Set environment
-export CUSTOM_WORKSPACE="/home/newton/coding_playground"
+export CUSTOM_WORKSPACE="/home/newton/swe_bench_reproducer"
 export SESSION_INPUT_FILE="/tmp/cline_session_1ac241f0-7732-43db-953d-68cd67712d66_9mfu62eh/input.txt"
 export SESSION_OUTPUT_FILE="/tmp/cline_session_1ac241f0-7732-43db-953d-68cd67712d66_9mfu62eh/output.txt"
 
@@ -35,7 +35,7 @@ describe('Persistent Cline Session', function () {
   before(async function() {
     console.log('Initializing persistent Cline session...');
     
-    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/swe_bench_reproducer';
     console.log(`Opening workspace: ${customWorkspace}`);
     
     await VSBrowser.instance.openResources(customWorkspace);

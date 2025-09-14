@@ -16,7 +16,7 @@ describe('API Persistent Cline Session', function () {
     console.log(`📁 Input file: ${inputFile}`);
     console.log(`📄 Output file: ${outputFile}`);
     
-    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/swe_bench_reproducer';
     console.log(`📂 Opening workspace: ${customWorkspace}`);
     
     try {

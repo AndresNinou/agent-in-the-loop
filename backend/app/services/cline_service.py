@@ -19,7 +19,7 @@ class ClineSession:
     
     def __init__(self, session_id: str, workspace_path: str = None):
         self.session_id = session_id
-        self.workspace_path = workspace_path or "/home/newton/coding_playground"
+        self.workspace_path = workspace_path or "/home/newton/swe_bench_reproducer"
         self.created_at = datetime.utcnow()
         self.messages: List[Dict[str, Any]] = []
         self.status = "initializing"  # initializing, ready, processing, error, stopped
@@ -180,7 +180,7 @@ class ClineService:
             try:
                 stdout, stderr = await asyncio.wait_for(
                     process.communicate(), 
-                    timeout=300  # 5 minute timeout
+                    timeout=600  # 10 minute timeout
                 )
             except asyncio.TimeoutError:
                 process.kill()
@@ -242,7 +242,7 @@ async function initializeSession() {{
         console.log('INIT_START');
         
         // Initialize VS Code browser (like the interactive CLI)
-        const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+        const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/swe_bench_reproducer';
         await VSBrowser.instance.openResources(customWorkspace);
         
         // Create persistent Cline session

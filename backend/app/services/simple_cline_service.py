@@ -19,7 +19,7 @@ class PersistentClineSession:
     
     def __init__(self, session_id: str, workspace_path: str = None):
         self.session_id = session_id
-        self.workspace_path = workspace_path or "/home/newton/coding_playground"
+        self.workspace_path = workspace_path or "/home/newton/swe_bench_reproducer"
         self.created_at = datetime.utcnow()
         self.messages: List[Dict[str, Any]] = []
         self.status = "initializing"
@@ -147,7 +147,7 @@ describe('Persistent Cline Session', function () {{
   before(async function() {{
     console.log('Initializing persistent Cline session...');
     
-    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+    const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/swe_bench_reproducer';
     console.log(`Opening workspace: ${{customWorkspace}}`);
     
     await VSBrowser.instance.openResources(customWorkspace);

@@ -330,7 +330,7 @@ async def quick_message_to_cline(message: str, workspace_path: Optional[str] = N
         
         stdout, stderr = await asyncio.wait_for(
             process.communicate(), 
-            timeout=300  # 5 minute timeout
+            timeout=600  # 10 minute timeout
         )
         
         if process.returncode != 0:

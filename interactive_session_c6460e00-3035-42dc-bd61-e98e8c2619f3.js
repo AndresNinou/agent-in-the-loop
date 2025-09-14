@@ -11,7 +11,7 @@ async function initializeSession() {
         console.log('INIT_START');
         
         // Initialize VS Code browser (like the interactive CLI)
-        const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/coding_playground';
+        const customWorkspace = process.env.CUSTOM_WORKSPACE || '/home/newton/swe_bench_reproducer';
         await VSBrowser.instance.openResources(customWorkspace);
         
         // Create persistent Cline session

@@ -218,7 +218,7 @@ Set these in your shell or `.env` file:
 
 ```bash
 # VS Code workspace path (default)
-export CUSTOM_WORKSPACE="/home/newton/coding_playground"
+export CUSTOM_WORKSPACE="/home/newton/swe_bench_reproducer"
 
 # Cline automation project root
 export CLINE_PROJECT_ROOT="/home/newton/cline_hackathon"

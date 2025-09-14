@@ -240,7 +240,7 @@ async def send_quick_message(session_id: str, request: MessageRequest):
         
         stdout, stderr = await asyncio.wait_for(
             process.communicate(), 
-            timeout=300  # 5 minute timeout
+            timeout=600  # 10 minute timeout
         )
         
         if process.returncode != 0:
