@@ -25,6 +25,10 @@ api_router.include_router(pages.router)
 from app.api.routes import cline
 api_router.include_router(cline.router)
 
+# CodeRabbit automation routes
+from app.api.routes import coderabbit
+api_router.include_router(coderabbit.router)
+
 # Register private router only in local environment
 if settings.ENVIRONMENT == "local":
     # Private router already has its own prefix and tags, so we don't add them again
