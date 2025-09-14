@@ -8,7 +8,10 @@
     "ui:test:cline": "./run-with-persistence.sh ui-tests/cline.chat.test.js",
     "ui:test:api": "./run-with-persistence.sh ui-tests/cline-api-demo.test.js",
     "ui:test:api:custom": "CUSTOM_WORKSPACE=/home/newton/coding_playground ./run-with-persistence.sh ui-tests/cline-api-demo.test.js",
-    "ui:setup": "./run-with-persistence.sh ui-tests/manual-verify-persistence.test.js"
+    "ui:setup": "./run-with-persistence.sh ui-tests/manual-verify-persistence.test.js",
+    "cli": "./cli-with-persistence.sh",
+    "cli:interactive": "./cli-with-persistence.sh --interactive",
+    "cli:multi": "./cli-multi.sh"
   },
   "keywords": [],
   "author": "",
